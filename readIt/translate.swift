@@ -9,31 +9,26 @@
 import Foundation
 
 
-let urlPath: String = "YOUR_URL_HERE"
 
-func sdsd(){
-    let url: NSURL = NSURL(string: urlPath)!
-    let request1: NSURLRequest = NSURLRequest(URL: url)
-    let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
-    
-    
-    do{
-        
-        let dataVal = try NSURLConnection.sendSynchronousRequest(request1, returningResponse: response)
-        
-        print(response)
+
+
+
+//https://cloud.google.com/translate/v2/quickstart
+
+func translateText(text: String, languageOrigin: String, languageFinal: String,completionHandler : ((translateResponse : NSDictionary) -> Void)) {
+    var urlPath = "http://api.mymemory.translated.net/get?q="
+    var languageToChange = "\(languageOrigin)|\(languageFinal)"
+    languageToChange = languageToChange.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+    let textToChange = text.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+    urlPath = urlPath+textToChange!+"&langpair="+languageToChange
+    NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlPath)!) { (data, response, error) in
+        var json: [String: AnyObject]!
         do {
-            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(dataVal, options: []) as? NSDictionary {
-                print("Synchronous\(jsonResult)")
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+        } catch {
+            print(error)
         }
-        
-        
-        
-    }catch let error as NSError
-    {
-        print(error.localizedDescription)
-    }
+        let responseData =  json.removeValueForKey("responseData")
+        completionHandler(translateResponse: responseData! as! NSDictionary)
+    }.resume()
 }

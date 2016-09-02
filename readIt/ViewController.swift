@@ -42,19 +42,25 @@ class ViewController: UIViewController {
 
     @IBAction func translate(sender: AnyObject) {
         var languageSelected: String
+        
         languageSelected = languages[languageControl.selectedSegmentIndex].iso639
         
         let textToSpech = textToTranslate.text
         
-        // Do any additional setup after loading the view, typically from a nib.
-        let synthesizer = AVSpeechSynthesizer()
-        let utterance = AVSpeechUtterance(string: textToSpech) //oration to say
-        utterance.rate = 0.5 //speed to talk
-        utterance.voice = AVSpeechSynthesisVoice(language: languageSelected) //we can costumner the lenguaje
-        synthesizer.speakUtterance(utterance);
+        translateText(textToSpech, languageOrigin: "ES", languageFinal: (languageSelected as NSString).substringToIndex(2)){(translateResponse) -> Void in
+            let translatedText = translateResponse.objectForKey("translatedText")! as! NSString
+            print(translatedText)
+            
+            self.textTranslated.text = translatedText as String
+            
+            
+            // Do any additional setup after loading the view, typically from a nib.
+            let synthesizer = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: textToSpech) //oration to say
+            utterance.rate = 0.5 //speed to talk
+            utterance.voice = AVSpeechSynthesisVoice(language: languageSelected) //we can costumner the lenguaje
+            synthesizer.speakUtterance(utterance);
         
-        for voice in AVSpeechSynthesisVoice.speechVoices() {
-            print(voice.language);
         }
     }
     
