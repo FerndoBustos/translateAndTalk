@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="readIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ingresa aqui el texto que te interesa traducir" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NTN-MU-Q5M">
+                                <rect key="frame" x="20" y="49" width="560" height="128"/>
+                                <color key="backgroundColor" red="0.88594159031413611" green="0.88594159031413611" blue="0.88594159031413611" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="57v-BO-pl4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-RT-Cvb">
+                                <rect key="frame" x="20" y="562" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.083559888622210934" green="0.83614201570680624" blue="0.41600332363507248" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Traducir">
+                                    <color key="titleColor" red="0.96374459923350941" green="1" blue="0.98358913268418302" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.018720939077910281" green="1" blue="0.48095505668348937" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="translate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Igl-Yk-bbA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto a traducir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gop-oc-IGX">
+                                <rect key="frame" x="20" y="20" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resultado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYg-Is-KMi">
+                                <rect key="frame" x="20" y="221" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hJZ-vT-Qqj">
+                                <rect key="frame" x="20" y="185" width="560" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-cp-gUj">
+                                <rect key="frame" x="20" y="250" width="560" height="128"/>
+                                <color key="backgroundColor" red="0.89594240837696337" green="0.89594240837696337" blue="0.89594240837696337" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="7Cv-uB-AgL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NTN-MU-Q5M" firstAttribute="trailing" secondItem="hJZ-vT-Qqj" secondAttribute="trailing" id="3FD-zk-Q91"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s1Q-RT-Cvb" secondAttribute="bottom" constant="8" symbolic="YES" id="4uY-6e-6wB"/>
+                            <constraint firstItem="gop-oc-IGX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8GR-eL-AUY"/>
+                            <constraint firstItem="NTN-MU-Q5M" firstAttribute="top" secondItem="gop-oc-IGX" secondAttribute="bottom" constant="5" id="BYq-t5-QaC"/>
+                            <constraint firstItem="gop-oc-IGX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="OFf-fh-Xmx"/>
+                            <constraint firstItem="1gO-cp-gUj" firstAttribute="trailing" secondItem="s1Q-RT-Cvb" secondAttribute="trailing" id="Svu-7V-gvD"/>
+                            <constraint firstItem="hJZ-vT-Qqj" firstAttribute="top" secondItem="NTN-MU-Q5M" secondAttribute="bottom" constant="8" symbolic="YES" id="VNw-8k-ddg"/>
+                            <constraint firstItem="XYg-Is-KMi" firstAttribute="trailing" secondItem="1gO-cp-gUj" secondAttribute="trailing" id="WH8-lX-c12"/>
+                            <constraint firstItem="hJZ-vT-Qqj" firstAttribute="trailing" secondItem="XYg-Is-KMi" secondAttribute="trailing" id="Z6T-au-UZZ"/>
+                            <constraint firstItem="hJZ-vT-Qqj" firstAttribute="leading" secondItem="XYg-Is-KMi" secondAttribute="leading" id="b7h-e8-AVy"/>
+                            <constraint firstItem="1gO-cp-gUj" firstAttribute="leading" secondItem="s1Q-RT-Cvb" secondAttribute="leading" id="c31-cT-jYK"/>
+                            <constraint firstItem="XYg-Is-KMi" firstAttribute="top" secondItem="hJZ-vT-Qqj" secondAttribute="bottom" constant="8" symbolic="YES" id="d2B-RA-eMs"/>
+                            <constraint firstItem="XYg-Is-KMi" firstAttribute="leading" secondItem="1gO-cp-gUj" secondAttribute="leading" id="dHA-qm-hMk"/>
+                            <constraint firstItem="gop-oc-IGX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pO6-wS-qKm"/>
+                            <constraint firstItem="gop-oc-IGX" firstAttribute="trailing" secondItem="NTN-MU-Q5M" secondAttribute="trailing" id="quF-u8-cpL"/>
+                            <constraint firstItem="1gO-cp-gUj" firstAttribute="top" secondItem="XYg-Is-KMi" secondAttribute="bottom" constant="5" id="sOb-uX-2x0"/>
+                            <constraint firstItem="NTN-MU-Q5M" firstAttribute="leading" secondItem="hJZ-vT-Qqj" secondAttribute="leading" id="t8Q-mj-GoU"/>
+                            <constraint firstItem="gop-oc-IGX" firstAttribute="leading" secondItem="NTN-MU-Q5M" secondAttribute="leading" id="ytV-un-UG1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="languageControl" destination="hJZ-vT-Qqj" id="ULK-G9-uLE"/>
+                        <outlet property="textToTranslate" destination="NTN-MU-Q5M" id="pS4-TX-xBl"/>
+                        <outlet property="textTranslated" destination="1gO-cp-gUj" id="Mhx-Qc-uZ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="573" y="425"/>
         </scene>
     </scenes>
 </document>
