@@ -409,7 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = readIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ibero.readIt;
+				PRODUCT_BUNDLE_IDENTIFIER = molanco.readIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -420,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = readIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ibero.readIt;
+				PRODUCT_BUNDLE_IDENTIFIER = molanco.readIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -490,6 +490,7 @@
 				083502111D78883100F2FBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		083502121D78883100F2FBC0 /* Build configuration list for PBXNativeTarget "readItTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				083502141D78883100F2FBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		083502151D78883100F2FBC0 /* Build configuration list for PBXNativeTarget "readItUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +508,7 @@
 				083502171D78883100F2FBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

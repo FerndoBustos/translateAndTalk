@@ -10,7 +10,7 @@ import Foundation
 
 
 
-
+//http://stackoverflow.com/questions/20052682/running-nsurlsession-completion-handler-on-main-thread
 
 
 //https://cloud.google.com/translate/v2/quickstart
