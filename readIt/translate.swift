@@ -9,12 +9,6 @@
 import Foundation
 
 
-
-//http://stackoverflow.com/questions/20052682/running-nsurlsession-completion-handler-on-main-thread
-
-
-//https://cloud.google.com/translate/v2/quickstart
-
 func translateText(text: String, languageOrigin: String, languageFinal: String,completionHandler : ((translateResponse : NSDictionary) -> Void)) {
     var urlPath = "http://api.mymemory.translated.net/get?q="
     var languageToChange = "\(languageOrigin)|\(languageFinal)"

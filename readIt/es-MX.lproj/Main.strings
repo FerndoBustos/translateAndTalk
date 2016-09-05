@@ -1,0 +1,18 @@
+
+/* Class = "UITextView"; text = "Ingresa aqui el texto que te interesa traducir"; ObjectID = "NTN-MU-Q5M"; */
+"NTN-MU-Q5M.text" = "Ingresa aqui el texto que te interesa traducir";
+
+/* Class = "UILabel"; text = "Resultado"; ObjectID = "XYg-Is-KMi"; */
+"XYg-Is-KMi.text" = "Resultado";
+
+/* Class = "UILabel"; text = "Texto en español a traducir"; ObjectID = "gop-oc-IGX"; */
+"gop-oc-IGX.text" = "Texto en español a traducir";
+
+/* Class = "UISegmentedControl"; hJZ-vT-Qqj.segmentTitles[0] = "First"; ObjectID = "hJZ-vT-Qqj"; */
+"hJZ-vT-Qqj.segmentTitles[0]" = "First";
+
+/* Class = "UISegmentedControl"; hJZ-vT-Qqj.segmentTitles[1] = "Second"; ObjectID = "hJZ-vT-Qqj"; */
+"hJZ-vT-Qqj.segmentTitles[1]" = "Second";
+
+/* Class = "UIButton"; normalTitle = "Traducir"; ObjectID = "s1Q-RT-Cvb"; */
+"s1Q-RT-Cvb.normalTitle" = "Traducir";

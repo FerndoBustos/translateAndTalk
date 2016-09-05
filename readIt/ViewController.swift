@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var languageControl: UISegmentedControl!
     @IBOutlet weak var textTranslated: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
     
     var languages = [language]()
     
@@ -42,29 +43,27 @@ class ViewController: UIViewController {
 
     @IBAction func translate(sender: AnyObject) {
         var languageSelected: String
-        
+        translateButton.enabled = false
         languageSelected = languages[languageControl.selectedSegmentIndex].iso639
-        
         let textToSpech = textToTranslate.text
-        
         translateText(textToSpech, languageOrigin: "ES", languageFinal: (languageSelected as NSString).substringToIndex(2)){(translateResponse) -> Void in
             let translatedText = translateResponse.objectForKey("translatedText")! as! NSString
             print(translatedText)
             
-            self.textTranslated.text = translatedText as String
-            
-            
-            // Do any additional setup after loading the view, typically from a nib.
-            let synthesizer = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: textToSpech) //oration to say
-            utterance.rate = 0.5 //speed to talk
-            utterance.voice = AVSpeechSynthesisVoice(language: languageSelected) //we can costumner the lenguaje
-            synthesizer.speakUtterance(utterance);
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.textTranslated.text = translatedText as String
+                
+                // Do any additional setup after loading the view, typically from a nib.
+                let synthesizer = AVSpeechSynthesizer()
+                let utterance = AVSpeechUtterance(string: translatedText as String) //oration to say
+                utterance.rate = 0.5 //speed to talk
+                utterance.voice = AVSpeechSynthesisVoice(language: languageSelected) //we can costumner the lenguaje
+                synthesizer.speakUtterance(utterance);
         
+                self.translateButton.enabled = true
+            }
         }
     }
-    
-    //http://nshipster.com/avspeechsynthesizer/
-    
 }
 

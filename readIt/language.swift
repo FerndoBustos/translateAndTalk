@@ -10,12 +10,10 @@ import Foundation
 
 class language {
     // MARK: Properties
-    
     var name: String
     var iso639: String
     
     // MARK: Initialization
-    
     init?(name: String, iso639: String) {
         // Initialize stored properties.
         self.name = name
@@ -26,5 +24,4 @@ class language {
             return nil
         }
     }
-    
 }
